@@ -9,7 +9,7 @@ module.exports = function (app) {
     content: { type: String, required: true },
     completed: { type: Boolean, default: false},
   }, {
-    timestamps: true
+    timestamps: true,
   });
 
   return mongooseClient.model('todos', todos);
