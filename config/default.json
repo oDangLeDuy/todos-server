@@ -6,5 +6,29 @@
     "default": 10,
     "max": 50
   },
-  "mongodb": "mongodb://localhost:27017/todos_server"
+  "mongodb": "mongodb://localhost:27017/todos_server",
+  "authentication": {
+    "secret": "56e5ae8f36196884b59c056631513cf45f231cfb37f428bf908886410ed91765e57a753179706e838dfd6276929d56edfb42889db725826e97b28223533a00552f20994640ff2d0995c2e2d7aa392424ebd44bd177e3796a6a86e35883bc1abf4f2bcd307c1e48f22af43f4cb402b6451a915f70d9ac8aeac22443132fac23b9ebbcc8710fac63f2abe63119ce60bdacc3e6e35d57db3eb179864e3cd5d3ec129b5a27cbff4b7c4a5b5a4ea8df61b819562bccb4712d00a6d35611429f3a5cbc50d0641d848d59f7f93729a9fe1fb07e3f38f6ccf8e404b3b694e8f505506aa61c9924ece61f82b27c32e10ad1191c3d019e8cab05dc19d28e51cf60376afbb7",
+    "strategies": [
+      "jwt",
+      "local"
+    ],
+    "path": "/authentication",
+    "service": "users",
+    "jwt": {
+      "header": {
+        "typ": "access"
+      },
+      "audience": "https://yourdomain.com",
+      "subject": "anonymous",
+      "issuer": "feathers",
+      "algorithm": "HS256",
+      "expiresIn": "1d"
+    },
+    "local": {
+      "entity": "user",
+      "usernameField": "email",
+      "passwordField": "password"
+    }
+  }
 }
